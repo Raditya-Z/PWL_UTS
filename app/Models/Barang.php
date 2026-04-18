@@ -31,4 +31,9 @@ class Barang extends Model
     {
         return $this->hasMany(PenjualanDetail::class, 'barang_id');
     }
+
+    public function getStokTotalAttribute()
+    {
+        return $this->stok->sum('stok_jumlah');
+    }
 }

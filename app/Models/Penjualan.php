@@ -20,8 +20,15 @@ class Penjualan extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function penjualanDetail()
+    public function details()
     {
         return $this->hasMany(PenjualanDetail::class, 'penjualan_id');
+    }
+
+    public function getTotalAttribute()
+    {
+        return $this->details->sum(function ($item) {
+            return $item->harga * $item->jumlah;
+        });
     }
 }

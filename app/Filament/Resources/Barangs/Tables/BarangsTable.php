@@ -44,6 +44,9 @@ class BarangsTable
                     ->label('Tgl Dibuat')
                     ->dateTime('d/m/Y H:i')
                     ->sortable(),
+                    
+                TextColumn::make('stok_total')
+                    ->label('Stok')
             ])
             ->recordActions([
                 EditAction::make(),

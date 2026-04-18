@@ -49,7 +49,7 @@ class StokResource extends Resource
 
     public static function canViewAny(): bool
     {
-        return optional(Auth::user())->isAdmin() ?? false;
+        return Auth::check();
     }
 
     public static function canCreate(): bool
