@@ -37,6 +37,16 @@ class User extends Authenticatable
         return $this->belongsTo(Level::class, 'level_id');
     }
 
+    public function isAdmin()
+    {
+        return $this->level_id == 1;
+    }
+
+    public function isKasir()
+    {
+        return $this->level_id == 2;
+    }
+
     public function getNameAttribute()
     {
         return $this->nama;
